@@ -147,29 +147,6 @@ describe("A <StaticRouter>", () => {
       );
     });
 
-    it("decodes an encoded pathname", () => {
-      const LocationChecker = props => {
-        expect(props.location).toMatchObject({
-          pathname: "/estático",
-          search: "",
-          hash: ""
-        });
-        expect(props.match.params.type).toBe("estático");
-        return null;
-      };
-
-      const context = {};
-
-      ReactDOMServer.renderToStaticMarkup(
-        <StaticRouter
-          context={context}
-          location={{ pathname: "/est%C3%A1tico" }}
-        >
-          <Route path="/:type" component={LocationChecker} />
-        </StaticRouter>
-      );
-    });
-
     it("knows how to serialize location objects", () => {
       const context = {};
 

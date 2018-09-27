@@ -90,4 +90,26 @@ describe("matchPath", () => {
       expect(!!falseTrue).toBe(false);
     });
   });
+
+  describe("params", () => {
+    const path = "/a/:first/b/:second+/c";
+    it("decodes params with decodeURIComponent", () => {
+      [
+        'abc-ABC_123~456',
+        'abc 123',
+        ":/?#[]@",
+        "$&+,;=",
+        "åß∂ƒ©˙∆˚¬…æ",
+        "田中さんにあげて下さい",
+        "사회과학원 어학연구소",
+        "<img src=\"/some-path\" />"
+      ].forEach(param => {
+        const encodedParam = encodeURIComponent(param);
+        const pathname = `/a/${encodedParam}/b/${encodedParam}/${encodedParam}/c`;
+        const match = matchPath(pathname, path);
+        expect(match.params.first).toEqual(param);
+        expect(match.params.second).toEqual(`${param}/${param}`);
+      });
+    })
+  })
 });

@@ -106,7 +106,7 @@ describe("A <Route> with dynamic segments in the path", () => {
   it("decodes them", () => {
     const node = document.createElement("div");
     ReactDOM.render(
-      <MemoryRouter initialEntries={["/a%20dynamic%20segment"]}>
+      <MemoryRouter initialEntries={["/a%20dynamic%20segment%24"]}>
         <Route
           path="/:id"
           render={({ match }) => <div>{match.params.id}</div>}
@@ -115,7 +115,7 @@ describe("A <Route> with dynamic segments in the path", () => {
       node
     );
 
-    expect(node.innerHTML).toContain("a dynamic segment");
+    expect(node.innerHTML).toContain("a dynamic segment$");
   });
 });
 
