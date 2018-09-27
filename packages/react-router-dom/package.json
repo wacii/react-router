@@ -42,7 +42,7 @@
     "react": ">=15"
   },
   "dependencies": {
-    "@wacii/react-router": "^4.4.0",
+    "@wacii/react-router": "^4.4.1",
     "history": "~4.5.0",
     "invariant": "^2.2.4",
     "loose-envify": "^1.3.1",
