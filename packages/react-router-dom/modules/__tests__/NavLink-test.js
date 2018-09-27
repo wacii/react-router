@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MemoryRouter from "react-router/MemoryRouter";
+import MemoryRouter from "@wacii/react-router/MemoryRouter";
 import NavLink from "../NavLink";
 import withRouter from "../withRouter";
 

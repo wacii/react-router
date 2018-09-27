@@ -6,10 +6,10 @@ const plugins = [
   [
     transformImports,
     {
-      "react-router": {
+      "@wacii/react-router": {
         transform: building
-          ? "react-router/es/${member}"
-          : "react-router/${member}",
+          ? "@wacii/react-router/es/${member}"
+          : "@wacii/react-router/${member}",
         preventFullImport: true
       }
     }
