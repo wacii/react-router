@@ -47,7 +47,9 @@ const matchPath = (pathname, options = {}, parent) => {
     url: path === "/" && url === "" ? "/" : url, // the matched portion of the URL
     isExact, // whether or not we matched exactly
     params: keys.reduce((memo, key, index) => {
-      memo[key.name] = decodeURIComponent(values[index]);
+      const value = values[index];
+      memo[key.name] =
+        value === undefined ? undefined : decodeURIComponent(value);
       return memo;
     }, {})
   };
